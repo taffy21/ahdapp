@@ -1,0 +1,64 @@
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+WindowManager:
+    Loading:
+    Login:
+    Contents:
+    Completed:
+
+<WindowManager>:
+    transition: FadeTransition()
+
+<Loading>:
+    name: "loading"
+    on_enter:
+        root.manager.current: "login" # run a clock function that runs a few seconds, fades and moves to the next screen
+    BoxLayout:
+        orientation: "vertical"
+        canvas.before:
+            Color:
+                rgb: 0.5, 0.1, 0.5
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Label:
+            text: "Advanced HIV Disease App"
+            font_size: 32
+
+<Login>:
+    name: "login"
+    BoxLayout:
+        orientation: "vertical"
+        canvas.before:
+            Color:
+                rgb: 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Image:
+            source: "head_image.png"
+        Label:
+            text: "UserName"
+            color: 0,0,0
+        TextInput:
+        Label:
+            text: "Password"
+            color: 0,0,0
+        TextInput:
+        Button:
+            text: "Confirm"
+        Label:
+            text: "Not Registered? Click Below"
+            color: 0, 0, 0
+        Button:
+            text: "Register"
+
+<Contents>
+    name: "contents"
+    RecycleView:
+        id: "recycler"
+        data: []
+        label:
+
+
+
