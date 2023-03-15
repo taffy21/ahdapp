@@ -1,7 +1,8 @@
 from kivy.app import App
-from kivy.uix.screenmanager import Screen, ScreenManager,FadeTransition
+from kivy.properties import ObjectProperty
+from kivy.uix.recycleview import RecycleView
+from kivy.uix.screenmanager import Screen, ScreenManager, FadeTransition
 from kivy.clock import Clock
-
 
 
 class WindowManager(ScreenManager):
@@ -11,7 +12,7 @@ class WindowManager(ScreenManager):
 class Loading(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        Clock.schedule_once(self.switch_screen, 5)
+        Clock.schedule_once(self.switch_screen, 3)
 
     def switch_screen(self, dt):
         self.manager.current = "login"
@@ -19,7 +20,8 @@ class Loading(Screen):
 class Login(Screen):
     pass
 
-
+class Register(Screen):
+    pass
 class Contents(Screen):
     pass
 
@@ -30,7 +32,7 @@ class Completed(Screen):
 
 
 class AdvancedHIVApp(App):
-    pass
+    print(WindowManager.current)
 
 
 

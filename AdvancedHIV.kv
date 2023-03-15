@@ -3,6 +3,8 @@
 WindowManager:
     Loading:
     Login:
+    Register:
+    SessionOne
     Contents:
     Completed:
 
@@ -11,8 +13,6 @@ WindowManager:
 
 <Loading>:
     name: "loading"
-    on_enter:
-        root.manager.current: "login" # run a clock function that runs a few seconds, fades and moves to the next screen
     BoxLayout:
         orientation: "vertical"
         canvas.before:
@@ -47,18 +47,129 @@ WindowManager:
         TextInput:
         Button:
             text: "Confirm"
+            on_press: root.manager.current = "contents"
         Label:
             text: "Not Registered? Click Below"
             color: 0, 0, 0
         Button:
             text: "Register"
+            on_press: root.manager.current = "register"
 
-<Contents>
+<Register>:
+    name: "register"
+    BoxLayout:
+        orientation: "vertical"
+        GridLayout:
+            cols: 2
+            Label:
+                text: "Name"
+            TextInput:
+                id: "name_input"
+                multiline: False
+            Label:
+                text: "Surname"
+            TextInput:
+                id: "surname_input"
+                multiline: False
+            Label:
+                text: "Designation"
+            TextInput:
+                id: "designation_input"
+                multiline: False
+            Label:
+                text: "District"
+            TextInput:
+                id: "district_input"
+                multiline: False
+            Label:
+                text: "Health Facility"
+            TextInput:
+                id: "facility_input"
+                multiline: False
+            Label:
+                text: "Email Address"
+            TextInput:
+                id: "email_input"
+                multiline: False
+            Label:
+                text: "Username"
+            TextInput:
+                id: "username_input"
+                multiline: False
+            Label:
+                text: "Password"
+            TextInput:
+                id: "password_input"
+                multiline: False
+        Button:
+            text: "Register"
+            size_hint_y: 0.15
+            on_press:
+                root.manager.current = "session_one"
+
+
+<Contents>:
     name: "contents"
-    RecycleView:
-        id: "recycler"
-        data: []
-        label:
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "Contents"
+            font_size: 32
+            size_hint_y: 0.25
+        RecycleView:
+            id: "recycler"
+            viewclass: 'Button'
+            data :
+                [{"text": "Pre-Test Quiz"},
+                {"text": "Session 1: Overview of AHD"},
+                {"text": "Session 2: Patient Clinical Monitoring & Laboratory Investigations"},
+                {"text": "Session 3: Approach to Management of AHD"},
+                {"text": "Session 4: Management of TB in AHD"},
+                {"text": "Session 5: Management of Cryptococcal Meningitis in AHD"},
+                {"text": "Session 6: Basics of a Neurological Examination"},
+                {"text": "Session 7: Other Opportunistic Infections"},
+                {"text": "Post_Test Quiz"}]
+            RecycleBoxLayout:
+                default_size: None, dp(56)
+                default_size_hint: 1, None
+                size_hint_y: None
+                height: self.minimum_height
+                orientation: 'vertical'
+        Label:
+            text:"Progress"
+            size_hint_y: 0.10
+            font_size: 24
+        ProgressBar:
+            size_hint_y: 0.10
+
+<SessionOne@Screen>:
+    name: "session_one"
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "Session 1_Overview of Advanced HIV Disease"  #<- this label does not adjust to the width of the window
+            size_hint_y: 0.1
+            font_size: 28
+        VideoPlayer:
+            id: "vid_one"
+            source: 'AHD_Session 1_Overview of Advanced HIV Disease.mp4'
+            size_hint_y: 0.9
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_y: 0.15
+            Button:
+                text: "Return Home"
+                on_press:
+                    root.manager.current = "contents"
+            Button:
+                text: "Proceed to Quiz"
+
+
+
+
+
+
+
 
 
 

@@ -1,12 +1,39 @@
 # creating an Advanced HIV Disease application
 
 # this application will have:
-1. a loading screening
-2. log in screen
-3. a quiz at the beginning
+1. a loading screening   ->done
+2. log in screen            ->done
+3. registration screen:
+    name, surname, designation, district, health-facility, email, username, password, button-click
+3. a quiz at the beginning -
 4. course outline
+    a. Pre-test Quiz
+    b. Session 1: Overview of AHD
+        i. Lesson   ->
+        11. Activity
+    c. Session 2: Patient Clincal Monitoring & Laboratory Investigations
+        i. Lesson
+        ii. Activity
+    d. Session 3: Approach to Management of AHD
+        i. Lesson
+        ii. Activity
+    e. Session 4: Management of TB in AHD
+        i. Lesson
+        ii. Activity
+    f. Session 5: Management of Cryptococcal Meningitis in AHD
+        i. Lesson
+        ii. Activity
+    g. Session 6: Basics of a Neurological Examination
+        i. Lesson
+        ii. Activity
+    h. Session 7: Other Opportunistic Infections
+        i. Lesson
+        ii. Activity
+    i. Post-test Quiz
+4. Progress bar
 5. quiz at the end
 6. certificate
 7. database to keep scores
 8. Completion screen
 9.
+
